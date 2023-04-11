@@ -1,0 +1,40 @@
+use("platzi_store")
+
+//$set
+// db.products.updateMany(
+//     //query
+//     {name:"product5"},
+//     // update - operators
+//     {
+//         //Agreg nuevo valor o modifica tal valor
+//         $set:{
+//             myAtr: 'hola'
+//         }
+//     }
+// )
+
+//$rename renombra el valor de la propiedad en este caso de myAtr a my_data
+// db.products.updateMany(
+//     //query
+//     {name:"product5"},
+//     // update - operators
+//     {
+//         //Agreg nuevo valor o modifica tal valor
+//         $rename:{
+//             myAtr: 'my_data'
+//         }
+//     }
+// )
+
+//$unset
+db.products.updateMany(
+    //query
+    {name:"product5"},
+    // update - operators
+    {
+        //Agreg nuevo valor o modifica tal valor
+        $unset:{
+            my_data: ''
+        }
+    }
+)
