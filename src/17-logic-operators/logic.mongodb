@@ -1,0 +1,56 @@
+use("sample_training")
+
+
+//$and => que cumpla las dos o más condiciones dadas.
+//$or => los que cumplan al menos una condición.
+//$nor => los que no cumplan con ninguna condición.
+//$not => excluye un elemento en especifico y no tiene forma de array
+
+// and implict
+db.inspections.find({
+    sector:"Tax Preparers - 891",
+    result: "Unable to Locate"
+}).count()
+
+// and explict
+db.inspections.find({
+   $and:[
+    {
+        sector:"Tax Preparers - 891"
+    },
+    {
+        result: "Unable to Locate"
+    }
+   ]
+}).count()
+
+// or 
+// $or [{},{},{}]
+db,inspections.find({
+    $or:[
+        {
+            sector:"Tax Preparers - 891"
+        },
+        {
+            result: "Unable to Locate"
+        }
+    ]
+})
+
+// nor 
+// $nor [{},{},{}]
+db,inspections.find({
+    $nor:[
+        {
+            sector:"Tax Preparers - 891"
+        },
+        {
+            result: "Unable to Locate"
+        }
+    ]
+})
+
+// $not = {}
+db,inspections.find({
+    result:{ $not: {$regex:/Unable to locate/}}
+})
