@@ -1,9 +1,0 @@
-use("sample_training")
-
-db.trips.find({
-    $expr:{
-        $eq:[""]
-    }
-})
-//star station id
-//end station id
