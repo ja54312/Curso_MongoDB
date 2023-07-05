@@ -1,0 +1,22 @@
+use("platzi_store")
+
+db.users.insertOne({
+    name:'Zule',
+    last_name: "Alatorre",
+    email: 'zule@gmail.com',
+    password:'sdfased4354',
+    role:'admin',
+    age:19,
+    isSingle:true,
+    social_accounts: ['twitter', 'facebook'],
+    address:{
+        street:'calle 3423',
+        city: 'Cali',
+        zip: '13486'
+    },
+    shipping_address:{
+        street:'calle 84654',
+        city: 'Cali',
+        zip: '13900'
+    }
+})
