@@ -1,0 +1,21 @@
+use("platzi_store")
+
+// db.orders.find({ user_id: ObjectId('64a5d7a49f7fd5bfef6a9cd9')})
+// db.users.findOne({_id:ObjectId('64a5d7a49f7fd5bfef6a9cd9')})
+// db.orders.find()
+
+db.orders.aggregate([
+    {
+        $match: {
+          _id: ObjectId('64af3a74c212f474a42570bb')
+        }
+    },
+    {
+        $lookup: {
+          from: 'users',
+          localField: 'user_id',
+          foreignField: '_id',
+          as: 'user'
+        }
+    }
+])
