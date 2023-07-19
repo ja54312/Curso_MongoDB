@@ -1,0 +1,6 @@
+use("platzi_store")
+
+// 64b821587297e7a41de99ea5
+db.orders.findOne({
+    _id :ObjectId('64b821587297e7a41de99ea5')
+})
